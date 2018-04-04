@@ -1,7 +1,7 @@
 import Construcror.*;
 
 /**
- * Created by MY on 04.04.2018.
+ * Created by Tsolak Varderesyan on 04.04.2018.
  */
 public class task4_newYearGift {
 
