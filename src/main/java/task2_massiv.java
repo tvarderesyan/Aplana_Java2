@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -5,26 +9,34 @@ import java.util.Scanner;
  */
 public class task2_massiv {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter array length");
         int size = input.nextInt();
-        int array[] = new int[size];
+        ArrayList<String> list = new ArrayList<String>();
+
+
         System.out.println("Insert array elements: ");
 
         for (int i = 0; i < size; i++) {
-            array[i] = input.nextInt();
+            list.add(reader.readLine());
+
         }
-        System.out.print("Insert array elements: ");
-        for (int i = 0; i < size; i++) {
-            System.out.print(array[i] + " ");
+        int i = 0;
+        int cur, indexOfMax = 0, maximum = list.get(0).length();
+
+        while (i < list.size() - 1) {
+            cur = list.get(++i).length();
+            if (cur > maximum) {
+                indexOfMax = i;
+                maximum = cur;
+            }
         }
-        {
-            int maximum = array[0];
-            for (int i = 0; i < array.length; i++)
-                if (maximum < array[i]) maximum = array[i];
-            System.out.println("\n maximum: " + maximum);
-        }
+
+        System.out.println("\n maximum in array is:" + list.get(indexOfMax));
     }
 }
+
+
 

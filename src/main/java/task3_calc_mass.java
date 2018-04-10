@@ -1,10 +1,14 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Created by Tsolak Varderesyan on 03.04.2018.
  */
 public class task3_calc_mass {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner Scanner = new Scanner(System.in);
         final int prog1 = 1;
         final int prog2 = 2;
@@ -43,24 +47,31 @@ public class task3_calc_mass {
             }
 
         } else if (test == prog2) {
+            Scanner input = new Scanner(System.in);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Enter array length");
-            int size = Scanner.nextInt();
-            int array[] = new int[size];
+            int size = input.nextInt();
+            ArrayList<String> list = new ArrayList<String>();
+
+
             System.out.println("Insert array elements: ");
 
             for (int i = 0; i < size; i++) {
-                array[i] = Scanner.nextInt();
+                list.add(reader.readLine());
+
             }
-            System.out.print("Your Array: ");
-            for (int i = 0; i < size; i++) {
-                System.out.print(array[i] + " " );
+            int i = 0;
+            int cur, indexOfMax = 0, maximum = list.get(0).length();
+
+            while (i < list.size() - 1) {
+                cur = list.get(++i).length();
+                if (cur > maximum) {
+                    indexOfMax = i;
+                    maximum = cur;
+                }
             }
-            {
-                int Maximum = array[0];
-                for (int i = 0; i < array.length; i++)
-                    if (Maximum < array[i]) Maximum = array[i];
-                System.out.println("\n Maximum in your array is: " + Maximum);
-            }
+
+            System.out.println("\n maximum in array is:" + list.get(indexOfMax));
         }
     }
 }
