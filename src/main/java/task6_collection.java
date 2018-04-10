@@ -8,7 +8,7 @@ import java.util.*;
 public class task6_collection {
 
     public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(new File("C:\\Java Course/Slova.txt"));
+        Scanner scanner = new Scanner(new File("C:\\Users\\MY\\IdeaProjects\\Aplana_Java2/Slova.txt"));
         Map<String, Integer> statistics = new TreeMap<>();
 
         while (scanner.hasNext())
